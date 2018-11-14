@@ -206,6 +206,8 @@ void display(void) {
 	glLoadIdentity();
 
 	if (!stats.render_complete) {
+		stats.start_timer();
+		
 		/* Start render threads */
 		start_render_threads(THREADS);
 
@@ -235,8 +237,6 @@ void change_size(const int w, const int h) {
 }
 
 void init(void) {
-	stats.start_timer();
-	
 	/* Set resolution */
 	Image * image = new Image(1920, 1080);
 	//Image * image = new Image(2560, 1440);
